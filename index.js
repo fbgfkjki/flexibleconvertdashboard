@@ -1,7 +1,3 @@
-function canJump(nums) {
-  let lastPos = nums.length - 1;
-  for (let i = nums.length - 2; i >= 0; i--) {
-    if (i + nums[i] >= lastPos) lastPos = i;
-  }
-  return lastPos === 0;
-}
+// Setup the client
+const aptosConfig = new AptosConfig({ network: APTOS_NETWORK });
+const aptos = new Aptos(aptosConfig);
