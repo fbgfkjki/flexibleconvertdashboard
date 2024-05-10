@@ -1,14 +1,12 @@
-function firstMissingPositive(nums) {
-  const n = nums.length;
-  for (let i = 0; i < n; i++) {
-    while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] !== nums[i]) {
-      const temp = nums[nums[i] - 1];
-      nums[nums[i] - 1] = nums[i];
-      nums[i] = temp;
+function isValidParentheses(s) {
+  const stack = [];
+  const map = { "(": ")", "[": "]", "{": "}" };
+  for (const char of s) {
+    if (char in map) stack.push(char);
+    else {
+      const top = stack.pop();
+      if (map[top] !== char) return false;
     }
   }
-  for (let i = 0; i < n; i++) {
-    if (nums[i] !== i + 1) return i + 1;
-  }
-  return n + 1;
+  return stack.length === 0;
 }
