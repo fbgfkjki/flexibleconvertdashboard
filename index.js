@@ -1,11 +1,2 @@
-function isValidBST(root) {
-  return isValid(root, null, null);
-}
-function isValid(node, min, max) {
-  if (!node) return true;
-  if ((min !== null && node.val <= min) || (max !== null && node.val >= max))
-    return false;
-  return (
-    isValid(node.left, min, node.val) && isValid(node.right, node.val, max)
-  );
-}
+const nthElement = (arr, n = 0) =>
+  (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
